@@ -210,3 +210,136 @@ SELECT INSTR(prd_brand, 'b') as prd_brand_instr FROM product;
 SELECT INSTR(manufactured_by, 'm') as manufactured_by_instr FROM product;
 SELECT INSTR(expiry_date, 'e') as expiry_date_instr FROM product;
 SELECT INSTR(prd_quantity, 'q') as prd_quantity_instr FROM product;
+
+
+create database Hospital;
+ use Hospital;
+
+
+CREATE TABLE hospital_info (
+  hospital_id INT PRIMARY KEY,
+  hospital_name VARCHAR(255) NOT NULL,
+  hospital_location VARCHAR(255) NOT NULL,
+  hospital_type VARCHAR(255) NOT NULL,
+  hospital_bed_count INT,
+  hospital_established_year INT
+);
+
+INSERT INTO hospital_info (hospital_id, hospital_name, hospital_location, hospital_type, hospital_bed_count, hospital_established_year)
+VALUES
+(1, 'Mayo Clinic', 'Rochester', 'Private', 200, 1889),
+(2, 'Cleveland Clinic', 'Cleveland', 'Private', 150, 1921),
+(3, 'Johns Hopkins Hospital', 'Baltimore', 'Private', 120, 1889),
+(4, 'Massachusetts General Hospital', 'Boston', 'Private', 180, 1811),
+(5, 'University of California, Los Angeles Medical Center', 'Los Angeles', 'Public', 150, 1955),
+(6, 'NewYork-Presbyterian Hospital', 'New York City', 'Private', 200, 1771),
+(7, 'University of California, San Francisco Medical Center', 'San Francisco', 'Public', 120, 1873),
+(8, 'Columbia University Irving Medical Center', 'New York City', 'Private', 150, 1770),
+(9, 'Stanford Health Care', 'Stanford', 'Private', 120, 1959),
+(10, 'University of Pennsylvania Health System', 'Philadelphia', 'Private', 150, 1751),
+(11, 'Duke University Hospital', 'Durham', 'Private', 120, 1930),
+(12, 'University of Washington Medical Center', 'Seattle', 'Public', 150, 1920),
+(13, 'Hospital of the University of Pennsylvania', 'Philadelphia', 'Private', 180, 1751),
+(14, 'University of California, San Diego Medical Center', 'San Diego', 'Public', 120, 1966),
+(15, 'Baylor University Medical Center', 'Dallas', 'Private', 150, 1903),
+(16, 'Washington University School of Medicine', 'St. Louis', 'Private', 120, 1891),
+(17, 'University of Pittsburgh Medical Center', 'Pittsburgh', 'Private', 150, 1893),
+(18, 'University of Michigan Health System', 'Ann Arbor', 'Public', 120, 1869),
+(19, 'University of Southern California Medical Center', 'Los Angeles', 'Private', 150, 1885),
+(20, 'Northwestern Memorial Hospital', 'Chicago', 'Private', 120, 1972);
+
+use Hospital;
+
+ALTER TABLE hospital_info
+ADD hospital_website VARCHAR(255),
+ADD hospital_phone_number VARCHAR(20),
+ADD hospital_email VARCHAR(255),
+ADD hospital_accreditation VARCHAR(255);
+
+CREATE TABLE bus_info (
+    bus_id INT ,
+    bus_number VARCHAR(10),
+    route VARCHAR(50),
+    departure_time TIME,
+    arrival_time TIME,
+    ticket_price DECIMAL(10, 2)
+);
+
+ALTER TABLE bus_info
+ADD COLUMN bus_dept VARCHAR(50),
+ADD COLUMN driver_name VARCHAR(50),
+ADD COLUMN num_of_seats INT,
+ADD COLUMN availability_status BOOLEAN;
+ 
+
+INSERT INTO bus_info  VALUES
+(1, 'B001', 'Route 1', '08:00:00', '09:00:00', 15.50, 'Dept A', 'John', 40, TRUE),
+(2, 'B002', 'Route 2', '09:00:00', '10:00:00', 12.75, 'Dept B', 'Mike', 35, TRUE),
+(3, 'B003', 'Route 3', '10:00:00', '11:00:00', 18.00, 'Dept A', 'Tom', 30, FALSE),
+(4, 'B004', 'Route 4', '11:00:00', '12:00:00', 10.00, 'Dept B', 'Harry', 25, TRUE),
+(5, 'B005', 'Route 5', '12:00:00', '13:00:00', 20.00, 'Dept C', 'Sam', 45, TRUE),
+(6, 'B006', 'Route 6', '13:00:00', '14:00:00', 11.50, 'Dept A', 'David', 40, FALSE),
+(7, 'B007', 'Route 7', '14:00:00', '15:00:00', 13.75, 'Dept B', 'Chris', 35, TRUE),
+(8, 'B008', 'Route 8', '15:00:00', '16:00:00', 16.25, 'Dept C', 'Paul', 30, TRUE),
+(9, 'B009', 'Route 9', '16:00:00', '17:00:00', 14.00, 'Dept A', 'Mark', 25, TRUE),
+(10, 'B010', 'Route 10', '17:00:00', '18:00:00', 19.00, 'Dept B', 'Luke', 45, FALSE),
+(11, 'B011', 'Route 11', '18:00:00', '19:00:00', 12.00, 'Dept C', 'James', 40, TRUE),
+(12, 'B012', 'Route 12', '19:00:00', '20:00:00', 15.00, 'Dept A', 'Peter', 35, TRUE),
+(13, 'B013', 'Route 13', '20:00:00', '21:00:00', 10.50, 'Dept B', 'Andrew', 30, FALSE),
+(14, 'B014', 'Route 14', '21:00:00', '22:00:00', 17.50, 'Dept C', 'Matthew', 25, TRUE),
+(15, 'B015', 'Route 15', '22:00:00', '23:00:00', 18.75, 'Dept A', 'Thomas', 45, TRUE),
+(16, 'B016', 'Route 16', '23:00:00', '00:00:00', 13.50, 'Dept B', 'Joseph', 40, FALSE),
+(17, 'B017', 'Route 17', '00:00:00', '01:00:00', 20.00, 'Dept C', 'Anthony', 35, TRUE),
+(18, 'B018', 'Route 18', '01:00:00', '02:00:00', 11.25, 'Dept A', 'Charles', 30, TRUE),
+(19, 'B019', 'Route 19', '02:00:00', '03:00:00', 16.00, 'Dept B', 'Kevin', 25, TRUE),
+(20, 'B020', 'Route 20', '03:00:00', '04:00:00', 12.75, 'Dept C', 'Daniel', 45, FALSE),
+(21, 'B021', 'Route 21', '04:00:00', '05:00:00', 15.75, 'Dept A', 'Jason', 40, TRUE),
+(22, 'B022', 'Route 22', '05:00:00', '06:00:00', 13.00, 'Dept B', 'George', 35, TRUE),
+(23, 'B023', 'Route 23', '06:00:00', '07:00:00', 17.25, 'Dept C', 'Kenneth', 30, FALSE),
+(24, 'B024', 'Route 24', '07:00:00', '08:00:00', 18.50, 'Dept A', 'Patrick', 25, TRUE),
+(25, 'B025', 'Route 25', '08:00:00', '09:00:00', 14.75, 'Dept B', 'Stephen', 45, TRUE),
+(26, 'B026', 'Route 26', '09:00:00', '10:00:00', 19.25, 'Dept C', 'Brian', 40, FALSE),
+(27, 'B027', 'Route 27', '10:00:00', '11:00:00', 12.50, 'Dept A', 'Gregory', 35, TRUE),
+(28, 'B028', 'Route 28', '11:00:00', '12:00:00', 15.25, 'Dept B', 'Paul', 30, TRUE),
+(29, 'B029', 'Route 29', '12:00:00', '13:00:00', 10.75, 'Dept C', 'Raymond', 25, TRUE),
+(30, 'B030', 'Route 30', '13:00:00', '14:00:00', 20.00, 'Dept A', 'Gary', 45, TRUE);
+
+SELECT * FROM bus_info;
+
+SELECT MAX(ticket_price) AS max_ticket_price FROM bus_info;
+
+SELECT bus_dept, MIN(ticket_price) AS min_ticket_price FROM bus_info GROUP BY bus_dept;
+
+use Company;
+
+CREATE TABLE staff_directory (
+  staff_id INT  NOT NULL,
+  first_name VARCHAR(50) NOT NULL,
+  last_name VARCHAR(50) NOT NULL,
+  position VARCHAR(100) NOT NULL,
+  team VARCHAR(100) NOT NULL,
+  salary DECIMAL(10, 2) NOT NULL CHECK (salary > 0),
+  start_date DATE NOT NULL DEFAULT CURRENT_DATE, UNIQUE (staff_id, first_name, last_name)
+);
+INSERT INTO staff_directory (staff_id, first_name, last_name, position, team, salary, start_date)
+VALUES
+(1, 'John', 'Doe', 'Manager', 'Sales', 50000.00, '2020-01-01'),
+(2, 'Jane', 'Smith', 'Employee', 'Marketing', 40000.00, '2020-01-15'),
+(3, 'Bob', 'Johnson', 'Director', 'IT', 60000.00, '2020-02-01'),
+(4, 'Alice', 'Williams', 'Employee', 'HR', 35000.00, '2020-03-01'),
+(5, 'Mike', 'Brown', 'Manager', 'Finance', 55000.00, '2020-04-01'),
+(6, 'Emily', 'Davis', 'Employee', 'Sales', 42000.00, '2020-05-01'),
+(7, 'Sarah', 'Miller', 'Director', 'Operations', 65000.00, '2020-06-01'),
+(8, 'John', 'Taylor', 'Employee', 'IT', 38000.00, '2020-07-01'),
+(9, 'Kate', 'Wilson', 'Manager', 'Marketing', 52000.00, '2020-08-01'),
+(10, 'Sam', 'Thomas', 'Employee', 'HR', 33000.00, '2020-09-01'),
+(11, 'Lily', 'Jackson', 'Director', 'Sales', 58000.00, '2020-10-01'),
+(12, 'Raj', 'Patel', 'Employee', 'Finance', 45000.00, '2020-11-01'),
+(13, 'Sophia', 'Lee', 'Manager', 'Operations', 56000.00, '2020-12-01'),
+(14, 'Olivia', 'Martin', 'Employee', 'IT', 39000.00, '2021-01-01'),
+(15, 'Jackson', 'Hall', 'Director', 'Marketing', 61000.00, '2021-02-01'),
+(16, 'Ava', 'Garcia', 'Employee', 'HR', 36000.00, '2021-03-01'),
+(17, 'Ethan', 'Harris', 'Manager', 'Sales', 54000.00, '2021-04-01'),
+(18, 'Mia', 'Martinez', 'Employee', 'Finance', 41000.00, '2021-05-01'),
+(19, 'William', 'Clark', 'Director', 'IT', 62000.00, '2021-06-01'),
+(20, 'Julia', 'Rodriguez', 'Manager', 'Operations', 57000.00, '2021-07-01');
